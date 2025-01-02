@@ -1,9 +1,11 @@
 🎮 **2D-Chess-Game**
+
 A classic 2D chess video game built with Unity, designed to showcase polished gameplay mechanics, intuitive controls, and a clean, modern UI.
 
 ---
 
 🌟 **Game Overview**
+
 Whether you're a beginner or a grandmaster, this project offers an engaging way to play, practice, and improve your chess skills. Perfect for casual gaming and competitive practice alike.
 
 ---

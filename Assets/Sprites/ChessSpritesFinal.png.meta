@@ -1,10 +1,43 @@
 fileFormatVersion: 2
-guid: beaffbc286a62214f9836bd58868005d
+guid: 8da85245f9a42684fb77d83ad86bfdc2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1482754137514828221
-    second: ChessSprites_0
+      213: -9108178254345436684
+    second: ChessSpritesFinal_0
+  - first:
+      213: -999962060836002960
+    second: ChessSpritesFinal_1
+  - first:
+      213: 8340383965441871016
+    second: ChessSpritesFinal_2
+  - first:
+      213: 6842647264811300933
+    second: ChessSpritesFinal_3
+  - first:
+      213: -6918652920917288716
+    second: ChessSpritesFinal_4
+  - first:
+      213: 6808559269347014924
+    second: ChessSpritesFinal_5
+  - first:
+      213: 8709557842592343578
+    second: ChessSpritesFinal_6
+  - first:
+      213: -3172658285603815599
+    second: ChessSpritesFinal_7
+  - first:
+      213: 2942349808431799150
+    second: ChessSpritesFinal_8
+  - first:
+      213: -6063009603797773395
+    second: ChessSpritesFinal_9
+  - first:
+      213: 2875145659518046439
+    second: ChessSpritesFinal_10
+  - first:
+      213: -3520623886553994376
+    second: ChessSpritesFinal_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,265 +159,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blackPawn
+      name: ChessSpritesFinal_0
       rect:
         serializedVersion: 2
-        x: 106
-        y: 670
-        width: 204
-        height: 304
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 493
+        y: 1611
+        width: 161
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3fd44d3e6e1225646b041faaec7f2408
-      internalID: 1395864705
+      spriteID: 4f18dc68220499180800000000000000
+      internalID: -9108178254345436684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blackKnight
+      name: ChessSpritesFinal_1
       rect:
         serializedVersion: 2
-        x: 350
-        y: 690
-        width: 244
-        height: 320
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab80dcc9947a6354eb4e7c19602fecc0
-      internalID: -2029531317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blackBishop
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 670
-        width: 210
-        height: 400
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15c559d1f6b22364a88cb1f139c15a70
-      internalID: 1062810195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blackRook
-      rect:
-        serializedVersion: 2
-        x: 931
-        y: 693
-        width: 195
-        height: 292
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f52bf867d00fcf43b139b814f0bad07
-      internalID: 249895044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blackQueen
-      rect:
-        serializedVersion: 2
-        x: 1210
-        y: 670
-        width: 186
-        height: 400
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 874a33cd697efff40b0fb1b395bc7953
-      internalID: 1142413207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blackKing
-      rect:
-        serializedVersion: 2
-        x: 1510
-        y: 670
-        width: 153
-        height: 400
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: effdc88661c47b04f8d46ac7a8636b42
-      internalID: 938290105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitePawn
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 170
-        width: 198
-        height: 299
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a818d19ebc7a7b047ad64bcd84774b7f
-      internalID: 1223384738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whiteKnight
-      rect:
-        serializedVersion: 2
-        x: 359
-        y: 184
-        width: 238
-        height: 334
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1eb1658f1095320449ebfa81461a8d1c
-      internalID: 705529644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whiteBishop
-      rect:
-        serializedVersion: 2
-        x: 658
-        y: 170
-        width: 204
-        height: 388
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30c1f4b68a2981e4285deaadbaf4a310
-      internalID: 684642534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whiteRook
-      rect:
-        serializedVersion: 2
-        x: 940
-        y: 192
-        width: 170
-        height: 287
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f123a49149188741b36ff4faf5ae138
-      internalID: -764584354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whiteQueen
-      rect:
-        serializedVersion: 2
-        x: 1219
-        y: 170
+        x: 941
+        y: 1614
         width: 173
-        height: 400
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6576b25066c42fa418bd7dfded83fac4
-      internalID: 933439451
+      spriteID: 073a00fbdcb6f12f0800000000000000
+      internalID: -999962060836002960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whiteKing
+      name: ChessSpritesFinal_2
       rect:
         serializedVersion: 2
-        x: 1510
-        y: 170
-        width: 147
-        height: 400
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1370
+        y: 1613
+        width: 213
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0ba4074616c6f354db8fd5caf67078c2
-      internalID: -1010893425
+      spriteID: 8acc68ef60ffeb370800000000000000
+      internalID: 8340383965441871016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_3
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1160
+        width: 160
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5483066fe67f5fe50800000000000000
+      internalID: 6842647264811300933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_4
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 1156
+        width: 232
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8918433d10cff90800000000000000
+      internalID: -6918652920917288716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_5
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 1160
+        width: 251
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c093f99059cdc7e50800000000000000
+      internalID: 6808559269347014924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_6
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 612
+        width: 161
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a162f6e66b09ed870800000000000000
+      internalID: 8709557842592343578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_7
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 615
+        width: 173
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f72e4491478f3d0800000000000000
+      internalID: -3172658285603815599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_8
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 614
+        width: 213
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b1480cf8355d820800000000000000
+      internalID: 2942349808431799150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_9
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 161
+        width: 160
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da31ad773ecdbdba0800000000000000
+      internalID: -6063009603797773395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_10
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 157
+        width: 232
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e054118eb196e720800000000000000
+      internalID: 2875145659518046439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChessSpritesFinal_11
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 161
+        width: 251
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ba13e6a3b342fc0800000000000000
+      internalID: -3520623886553994376
       vertices: []
       indices: 
       edges: []
@@ -393,7 +426,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 823c5e1f350d66d41bd9f7e478267716
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -402,19 +435,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      blackBishop: 1062810195
-      blackKing: 938290105
-      blackKnight: -2029531317
-      blackPawn: 1395864705
-      blackQueen: 1142413207
-      blackRook: 249895044
-      whiteBishop: 684642534
-      whiteKing: -1010893425
-      whiteKnight: 705529644
-      whitePawn: 1223384738
-      whiteQueen: 933439451
-      whiteRook: -764584354
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

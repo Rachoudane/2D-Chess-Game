@@ -2,36 +2,66 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; // Singleton
-    private Piece selectedPiece;
-    private bool isWhiteTurn = true;
+    public static GameManager Instance; // Singleton instance
+
+    public Piece selectedPiece; // The currently selected piece
+    private bool isWhiteTurn = true; // White starts the game
 
     void Awake()
     {
-        Instance = this;
+        // Ensure Singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Prevent duplicate GameManagers
+        }
     }
 
-    public bool IsCurrentPlayerWhite()
+    // Check if it's the turn of the given piece's color
+    public bool IsTurnValid(Piece piece)
     {
-        return isWhiteTurn;
+        return isWhiteTurn == piece.isWhite;
     }
 
+    // Select a piece if it's the correct turn
     public void SelectPiece(Piece piece)
     {
-        if (selectedPiece != null)
+        // Check if the piece matches the current turn
+        if (!IsTurnValid(piece))
+        {
+            Debug.Log("Not your turn.");
+            return;
+        }
+
+        // Deselect the currently selected piece, if any
+        if (selectedPiece != null && selectedPiece != piece)
         {
             selectedPiece.ResetPosition();
         }
-        selectedPiece = piece;
+
+        selectedPiece = piece; // Set the new selected piece
     }
 
-    public void MoveSelectedPiece(Vector2 newPosition)
+    // Move the currently selected piece to a target position
+    public void MoveSelectedPiece(Vector2 targetPos)
     {
-        if (selectedPiece != null)
+        if (selectedPiece == null) return; // No piece selected
+
+        // Validate and execute the move
+        if (selectedPiece.IsValidMove(targetPos))
         {
-            selectedPiece.Move(newPosition);
-            isWhiteTurn = !isWhiteTurn; // Switch turn
-            selectedPiece = null;
+            selectedPiece.Move(targetPos); // Move the piece
+            isWhiteTurn = !isWhiteTurn; // Switch turns
+            Debug.Log($"Turn changed to {(isWhiteTurn ? "White" : "Black")}");
+            selectedPiece = null; // Deselect the piece after moving
+        }
+        else
+        {
+            Debug.Log("Invalid move.");
+            selectedPiece.ResetPosition(); // Reset the piece if move is invalid
         }
     }
 }

@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public Piece selectedPiece; // The currently selected piece
     private bool isWhiteTurn = true; // White starts the game
+    public TextMeshProUGUI turnIndicator;
 
     void Awake()
     {
@@ -56,12 +59,31 @@ public class GameManager : MonoBehaviour
             selectedPiece.Move(targetPos); // Move the piece
             isWhiteTurn = !isWhiteTurn; // Switch turns
             Debug.Log($"Turn changed to {(isWhiteTurn ? "White" : "Black")}");
+
+            // Update the turn display in the UI
+            UpdateTurnDisplay();
+
             selectedPiece = null; // Deselect the piece after moving
         }
         else
         {
             Debug.Log("Invalid move.");
             selectedPiece.ResetPosition(); // Reset the piece if move is invalid
+        }
+    }
+
+    private void UpdateTurnDisplay()
+    {
+        if (turnIndicator != null)
+        {
+            if (isWhiteTurn)
+            {
+                turnIndicator.text = "White's Turn";
+            }
+            else
+            {
+                turnIndicator.text = "Purple's Turn";
+            }
         }
     }
 }

@@ -11,22 +11,19 @@ public class BoardInteraction : MonoBehaviour
 
             if (hit != null)
             {
-                Debug.Log($"Clicked on: {hit.name}"); // Log the name of the clicked object
-
-                if (hit.GetComponent<Piece>() != null) // If it's a piece
-                {
-                    GameManager.Instance.SelectPiece(hit.GetComponent<Piece>());
-                }
-                else if (GameManager.Instance.selectedPiece != null) // If a piece is selected
+                Piece piece = hit.GetComponent<Piece>();
+                if (GameManager.Instance.selectedPiece != null) // If a piece is selected, handle move
                 {
                     Vector2 targetPos = new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
-                    Debug.Log($"Tile clicked at: {targetPos}");
                     GameManager.Instance.MoveSelectedPiece(targetPos);
                 }
-            }
-            else
-            {
-                Debug.Log("Nothing was clicked.");
+                else if (piece != null) // If the clicked object is a piece
+                {
+                    if (GameManager.Instance.IsTurnValid(piece))
+                    {
+                        GameManager.Instance.SelectPiece(piece);
+                    }
+                }
             }
         }
     }

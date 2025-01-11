@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7474451153020147345}
   - component: {fileID: 2606507139052205775}
   m_Layer: 0
-  m_Name: whiteBishop
+  m_Name: WhiteBishop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

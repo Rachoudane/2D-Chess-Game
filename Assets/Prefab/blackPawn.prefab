@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5838168064009175243}
   - component: {fileID: 4893052638025559517}
   m_Layer: 0
-  m_Name: blackPawn
+  m_Name: BlackPawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

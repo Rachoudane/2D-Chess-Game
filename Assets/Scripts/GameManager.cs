@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,12 +11,33 @@ public class GameManager : MonoBehaviour
     public static Vector2 whiteKingPosition;
     public static Vector2 blackKingPosition;
 
+    // Unified TextMeshPro element for all UI messages
+    public TextMeshProUGUI gameStatusText; // This will show turn, message, and countdown information
+
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        // Find the initial positions of both kings
+#pragma warning disable CS0618 // Type or member is obsolete
+        foreach (var piece in FindObjectsOfType<Piece>())
+        {
+            if (piece.name.Contains("King"))
+            {
+                if (piece.isWhite)
+                    whiteKingPosition = piece.transform.position;
+                else
+                    blackKingPosition = piece.transform.position;
+            }
+        }
+#pragma warning restore CS0618 // Type or member is obsolete
+        UpdateGameStatus(); // Initialize the game status display
     }
 
     public bool IsCurrentPlayerWhite()
@@ -38,98 +61,153 @@ public class GameManager : MonoBehaviour
         selectedPiece = piece;
     }
 
+    private bool gameOver = false;
+
     public void MoveSelectedPiece(Vector2 targetPos)
     {
-        if (selectedPiece == null)
-            return;
+        if (gameOver) return; // Prevent further moves after game over
+
+        if (selectedPiece == null) return;
 
         if (selectedPiece.IsValidMove(targetPos))
         {
             selectedPiece.Move(targetPos);
 
-            if (selectedPiece.name.Contains("King"))
+            if (IsKingInCheck(!isWhiteTurn))
             {
-                if (selectedPiece.isWhite)
-                    whiteKingPosition = targetPos;
-                else
-                    blackKingPosition = targetPos;
+                DisplayMessage($"{(isWhiteTurn ? "White" : "Black")} puts {(isWhiteTurn ? "Black" : "White")} in check!");
+                if (IsCheckmate(!isWhiteTurn))
+                {
+                    DisplayMessage($"{(isWhiteTurn ? "White" : "Black")} wins by checkmate!");
+                    gameOver = true; // Set game over state
+                    StartCoroutine(RestartGameCountdown());
+                    return;
+                }
             }
-
-            if (IsKingInCheck(!isWhiteTurn) && IsCheckmate(!isWhiteTurn))
-            {
-                Debug.Log($"{(isWhiteTurn ? "White" : "Black")} wins by checkmate!");
-            }
-
-            selectedPiece = null; // Deselect piece after the move
-            Invoke(nameof(SwitchTurn), 0.5f); // Delay for animations
+            selectedPiece = null;
+            SwitchTurn();
         }
         else
         {
-            selectedPiece.ResetPosition(); // Reset to original position if the move is invalid
+            selectedPiece.ResetPosition();
+            Debug.Log("Move invalid due to check!");
         }
     }
+
+
 
     private void SwitchTurn()
     {
         isWhiteTurn = !isWhiteTurn; // Switch turn to the other player
+        UpdateGameStatus(); // Update the display after the turn switch
+    }
+
+    private void UpdateGameStatus()
+    {
+        if (gameStatusText != null)
+        {
+            // Update the text based on the current game state
+            if (gameStatusText.gameObject.activeSelf)
+            {
+                gameStatusText.text = $"Turn: {(isWhiteTurn ? "Gold" : "Purple")}";
+            }
+        }
     }
 
     public bool IsKingInCheck(bool checkWhiteKing)
     {
         Vector2 kingPosition = checkWhiteKing ? whiteKingPosition : blackKingPosition;
+        Debug.Log($"Checking threats against {(checkWhiteKing ? "White" : "Black")} King at {kingPosition}");
+
+#pragma warning disable CS0618 // Type or member is obsolete
         foreach (var piece in FindObjectsOfType<Piece>())
         {
             if (piece.isWhite != checkWhiteKing && piece.IsValidMove(kingPosition, true))
+            {
+                Debug.Log($"{piece.name} threatens the King at {kingPosition}");
                 return true;
+            }
         }
+#pragma warning restore CS0618 // Type or member is obsolete
         return false;
     }
 
+
+
+
     public bool IsCheckmate(bool checkWhiteKing)
     {
-        Vector2 kingPosition = checkWhiteKing ? whiteKingPosition : blackKingPosition;
+        if (!IsKingInCheck(checkWhiteKing)) return false;
 
-        // Check if the king can move to a safe square
-        Vector2[] possibleMoves = {
-            new(0, 1), new(1, 0), new(0, -1), new(-1, 0),
-            new(1, 1), new(1, -1), new(-1, 1), new(-1, -1)
-        };
-
-        foreach (var move in possibleMoves)
-        {
-            if (IsPositionSafe(kingPosition + move, checkWhiteKing))
-                return false;
-        }
-
-        // Check if any piece can block or capture the threatening piece
+        // Check if any piece can block the check or move the king to safety
+#pragma warning disable CS0618 // Type or member is obsolete
         foreach (var piece in FindObjectsOfType<Piece>())
         {
             if (piece.isWhite == checkWhiteKing)
             {
                 Vector2 originalPos = piece.transform.position;
-
                 foreach (var move in piece.GetValidMoves())
                 {
                     piece.Move(move);
-                    if (!IsKingInCheck(checkWhiteKing))
-                    {
-                        piece.Move(originalPos); // Reset piece
+                    bool isSafe = !IsKingInCheck(checkWhiteKing);
+                    piece.Move(originalPos); // Undo move
+
+                    if (isSafe)
                         return false;
-                    }
-                    piece.Move(originalPos);
                 }
             }
         }
+#pragma warning restore CS0618 // Type or member is obsolete
+
         return true;
     }
 
+
     private bool IsPositionSafe(Vector2 position, bool checkWhiteKing)
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         foreach (var piece in FindObjectsOfType<Piece>())
         {
-            if (piece.isWhite != checkWhiteKing && piece.IsValidMove(position))
+            if (piece.isWhite != checkWhiteKing && piece.IsValidMove(position, true))
+            {
                 return false;
+            }
         }
+#pragma warning restore CS0618 // Type or member is obsolete
         return true;
+    }
+
+
+    private void DisplayMessage(string message)
+    {
+        if (gameStatusText != null)
+        {
+            gameStatusText.text = message;
+            gameStatusText.gameObject.SetActive(true);
+
+            StopAllCoroutines();
+            StartCoroutine(HideMessageAfterDelay());
+        }
+    }
+
+    private IEnumerator HideMessageAfterDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        gameStatusText.gameObject.SetActive(false);
+    }
+
+    private IEnumerator RestartGameCountdown()
+    {
+        for (int i = 5; i > 0; i--)
+        {
+            if (gameStatusText != null)
+            {
+                gameStatusText.text = $"Restarting in {i}...";
+            }
+            yield return new WaitForSeconds(1f);
+        }
+
+        // Restart the game
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }

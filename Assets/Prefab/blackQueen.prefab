@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5195683102338808839}
   - component: {fileID: 998808602690169427}
   m_Layer: 0
-  m_Name: blackQueen
+  m_Name: BlackQueen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
